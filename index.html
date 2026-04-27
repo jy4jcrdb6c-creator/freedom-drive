@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Freedom Drive — May 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d1117;
+    color: #e8e8e0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Star background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(1px 1px at 8%  12%, rgba(255,255,200,0.55) 0%, transparent 100%),
+      radial-gradient(1px 1px at 23% 58%, rgba(255,255,200,0.45) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 38% 22%, rgba(255,255,200,0.65) 0%, transparent 100%),
+      radial-gradient(1px 1px at 52% 78%, rgba(255,255,200,0.40) 0%, transparent 100%),
+      radial-gradient(1px 1px at 67% 9%,  rgba(255,255,200,0.55) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 78% 43%, rgba(255,255,200,0.45) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 68%, rgba(255,255,200,0.65) 0%, transparent 100%),
+      radial-gradient(1px 1px at 14% 85%, rgba(255,255,200,0.38) 0%, transparent 100%),
+      radial-gradient(1px 1px at 58% 48%, rgba(255,255,200,0.30) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 33% 90%, rgba(255,255,200,0.48) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 33%, rgba(255,255,200,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 25%, rgba(255,255,200,0.50) 0%, transparent 100%);
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 52px 40px 40px;
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    margin-bottom: 0;
+  }
+
+  .header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 14px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #f5f0e0;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .header .subtitle {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 22px;
+  }
+
+  .crew {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .crew-tag {
+    background: rgba(201,168,76,0.10);
+    border: 1px solid rgba(201,168,76,0.28);
+    color: #c9a84c;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── ACCOMMODATION STRIP ── */
+  .accom-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  .accom-cell {
+    background: #0d1117;
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  .accom-suite {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 5px;
+  }
+
+  .accom-names {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f0ece0;
+    margin-bottom: 5px;
+  }
+
+  .diet-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .diet-vegan  { background: rgba(80,160,80,0.15);  color: #6db86d; }
+  .diet-halaal { background: rgba(80,120,200,0.15); color: #7aabdd; }
+
+  /* ── TABS ── */
+  .tabs-nav {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: #0a0e14;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .tabs-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 16px 12px 14px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .tab-btn:hover { color: #aaa; }
+
+  .tab-btn.active {
+    color: #c9a84c;
+    border-bottom-color: #c9a84c;
+  }
+
+  /* ── TAB PANELS ── */
+  .tab-panel { display: none; padding: 40px 40px 20px; }
+  .tab-panel.active { display: block; }
+
+  /* ── DAY LABEL ── */
+  .day-label {
+    display: inline-block;
+    background: #c9a84c;
+    color: #0d1117;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #f5f0e0;
+    margin-bottom: 6px;
+  }
+
+  .panel-meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { padding-left: 0; }
+
+  .stop {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .stop::before {
+    content: '';
+    position: absolute;
+    left: 61px;
+    top: 22px;
+    bottom: -20px;
+    width: 1px;
+    background: rgba(201,168,76,0.10);
+  }
+
+  .stop:last-child::before { display: none; }
+
+  .stop-time {
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    color: #c9a84c;
+    padding-top: 14px;
+    white-space: nowrap;
+  }
+
+  .stop-content {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 3px solid rgba(201,168,76,0.35);
+    border-radius: 6px;
+    padding: 13px 16px;
+  }
+
+  .stop-content.highlight {
+    background: rgba(201,168,76,0.055);
+    border-left-color: #c9a84c;
+  }
+
+  .stop-content.star {
+    background: rgba(80,60,160,0.10);
+    border-left-color: #8080cc;
+  }
+
+  .stop-content.action {
+    background: rgba(180,90,40,0.08);
+    border-left-color: #b06030;
+  }
+
+  .stop-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f0ece0;
+    margin-bottom: 4px;
+  }
+
+  .stop-detail {
+    font-size: 12.5px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .stop-detail a { color: #c9a84c; text-decoration: none; }
+  .stop-detail strong { color: #c9a84c; font-weight: 500; }
+
+  /* ── PILLS ── */
+  .pills { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .pill {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+  .pill-price  { background: rgba(201,168,76,0.14); color: #c9a84c; }
+  .pill-booked { background: rgba(80,160,80,0.14);  color: #6db86d; }
+  .pill-action { background: rgba(180,90,40,0.16);  color: #cc8855; }
+  .pill-info   { background: rgba(100,150,200,0.14); color: #88aacc; }
+
+  /* ── INFO BOXES ── */
+  .info-box {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 10px;
+  }
+
+  .info-box h4 {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 8px;
+  }
+
+  .info-box ul {
+    list-style: none;
+    font-size: 12.5px;
+    color: #888;
+    line-height: 1.85;
+  }
+
+  .info-box ul li::before { content: '— '; color: #444; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  /* ── ACTION ITEMS ── */
+  .actions { margin-top: 32px; }
+
+  .actions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #f5f0e0;
+    margin-bottom: 16px;
+  }
+
+  .action-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+
+  .action-item.done {
+    opacity: 0.5;
+    border-style: dashed;
+  }
+
+  .action-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .icon-done { background: rgba(80,160,80,0.18); color: #6db86d; }
+  .icon-todo { background: rgba(180,90,40,0.20); color: #cc8855; }
+
+  .action-info h4 {
+    font-size: 13px; font-weight: 500; color: #f0ece0; margin-bottom: 3px;
+  }
+
+  .action-item.done h4 { color: #999; }
+
+  .action-info p {
+    font-size: 12px; color: #888; line-height: 1.6;
+  }
+
+  .action-info a { color: #c9a84c; text-decoration: none; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 30px 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin: 40px 40px 0;
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 1px;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .header { padding: 36px 20px 28px; }
+    .header h1 { font-size: 30px; }
+    .tab-panel { padding: 28px 20px 16px; }
+    .accom-strip { grid-template-columns: 1fr; }
+    .accom-cell { text-align: left; }
+    .info-grid { grid-template-columns: 1fr; }
+    .stop { grid-template-columns: 58px 1fr; gap: 12px; }
+    .stop-time { font-size: 11px; }
+    .panel-title { font-size: 22px; }
+    .footer { margin: 30px 20px 0; padding: 24px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">9 – 10 May 2026 &nbsp;·&nbsp; Northern Cape</div>
+    <h1>The Freedom Drive</h1>
+    <div class="subtitle">Johannesburg → Sutherland → Cape Town</div>
+    <div class="crew">
+      <span class="crew-tag">Leigh</span>
+      <span class="crew-tag">Shadley</span>
+      <span class="crew-tag">Aqelah</span>
+      <span class="crew-tag">Ashraf</span>
+      <span class="crew-tag">Irshaad</span>
+      <span class="crew-tag">Natheer</span>
+    </div>
+  </div>
+
+  <!-- ACCOMMODATION STRIP -->
+  <div class="accom-strip">
+    <div class="accom-cell">
+      <div class="accom-suite">Aries Suite</div>
+      <div class="accom-names">Leigh</div>
+      <span class="diet-tag diet-vegan">Vegan</span>
+    </div>
+    <div class="accom-cell">
+      <div class="accom-suite">Taurus Suite</div>
+      <div class="accom-names">Aqelah &amp; Ashraf</div>
+      <span class="diet-tag diet-halaal">Halaal-friendly</span>
+    </div>
+    <div class="accom-cell">
+      <div class="accom-suite">Sagittarius Suite</div>
+      <div class="accom-names">Shadley, Irshaad &amp; Natheer</div>
+      <span class="diet-tag diet-halaal">Halaal-friendly</span>
+    </div>
+  </div>
+
+  <!-- TAB NAV -->
+  <div class="tabs-nav" role="tablist">
+    <button class="tab-btn active" onclick="switchTab('jhb')"   role="tab" aria-selected="true">Joburg Drive</button>
+    <button class="tab-btn"        onclick="switchTab('cpt')"   role="tab">Cape Town Drive</button>
+    <button class="tab-btn"        onclick="switchTab('eve')"   role="tab">Sat Evening</button>
+    <button class="tab-btn"        onclick="switchTab('sun')"   role="tab">Sunday</button>
+  </div>
+
+  <!-- ══ TAB 1: JOBURG DRIVE ══ -->
+  <div id="tab-jhb" class="tab-panel active" role="tabpanel">
+    <span class="day-label">Saturday 9 May</span>
+    <div class="panel-title">Johannesburg → Sutherland</div>
+    <div class="panel-meta">Leigh &amp; Shadley &nbsp;·&nbsp; ~1,250 km &nbsp;·&nbsp; ~13 hours with stops</div>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-time">06:00</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Depart Johannesburg</div>
+          <div class="stop-detail">Early start. Car checked — tyres, water, warm layers packed. May nights in Sutherland are below freezing.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">09:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Fuel Stop — Shell Ultra City, Kroonstad</div>
+          <div class="stop-detail">~280 km. Swap drivers, coffee, stretch legs.</div>
+          <div class="pills"><span class="pill pill-info">15 min</span></div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">12:30</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Lunch + Fuel — Shell N1 City, Colesberg</div>
+          <div class="stop-detail">Roughly halfway. Wimpy on site with vegan-friendly options available.</div>
+          <div class="pills"><span class="pill pill-info">60 min</span></div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">16:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Fuel Stop — BP, Beaufort West</div>
+          <div class="stop-detail">~330 km from Colesberg. Last reliable fuel before Sutherland — fill up fully here.</div>
+          <div class="pills"><span class="pill pill-info">20 min</span></div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">19:00</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Arrive — Skitterland Guesthouse, Sutherland</div>
+          <div class="stop-detail">Aqelah's group will already be here. Check in to the Aries Suite. Grab snacks from the OK Food Store before it closes — you'll want something late tonight. Temperature drops fast after sunset.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>What to pack for the drive</h4>
+        <ul>
+          <li>Thermals + warm jacket for the evening</li>
+          <li>Gloves and a hat — non-negotiable</li>
+          <li>Snacks and water for the car</li>
+          <li>Phone charger / car charger</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>Fuel notes</h4>
+        <ul>
+          <li>Don't rely on small towns after hours</li>
+          <li>Beaufort West is your last guaranteed stop</li>
+          <li>Sutherland has a Sasol — open 7 days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2: CAPE TOWN DRIVE ══ -->
+  <div id="tab-cpt" class="tab-panel" role="tabpanel">
+    <span class="day-label">Saturday 9 May</span>
+    <div class="panel-title">Cape Town → Sutherland</div>
+    <div class="panel-meta">Aqelah, Ashraf, Irshaad &amp; Natheer &nbsp;·&nbsp; ~370 km &nbsp;·&nbsp; must arrive before 20:00</div>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-time">TBC</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Depart Cape Town</div>
+          <div class="stop-detail">Allow at least 5 hours including a fuel and bathroom stop. You need to be checked in at Skitterland and ready to leave for the Planetarium by 19:45.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">TBC</div>
+        <div class="stop-content">
+          <div class="stop-name">Fuel + Break — Touws River or Matjiesfontein</div>
+          <div class="stop-detail">A sensible halfway stop on the N1. Matjiesfontein has a small coffee shop if you want a quick stretch.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">Before 19:45</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Arrive — Skitterland Guesthouse, Sutherland</div>
+          <div class="stop-detail">Check in to the Taurus Suite (Aqelah &amp; Ashraf) and Sagittarius Suite (Irshaad &amp; Natheer). Layer up immediately — it's cold. Leigh &amp; Shadley arrive from Joburg around the same time.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>Route (N1 North)</h4>
+        <ul>
+          <li>Cape Town → Paarl → Worcester</li>
+          <li>Hex River Valley → Touws River</li>
+          <li>Matjiesfontein → Laingsburg</li>
+          <li>R354 north → Sutherland</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>Reminders</h4>
+        <ul>
+          <li>Warm clothes accessible — not in the boot</li>
+          <li>May nights in Sutherland: sub-zero</li>
+          <li>Limited ATM access in town — bring cash</li>
+          <li>Signal gets patchy after Laingsburg</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 3: SAT EVENING ══ -->
+  <div id="tab-eve" class="tab-panel" role="tabpanel">
+    <span class="day-label">Saturday 9 May</span>
+    <div class="panel-title">Evening — Full Group</div>
+    <div class="panel-meta">All 6 together for the first time</div>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-time">19:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Full crew assembled at Skitterland</div>
+          <div class="stop-detail">Everyone checks in. Get warm layers on before you leave — the Planetarium is outdoors and it will be cold. Pick up snacks at the OK Food Store if you haven't already.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">20:00</div>
+        <div class="stop-content star">
+          <div class="stop-name">★ Stargazing — Sutherland Planetarium</div>
+          <div class="stop-detail">All 6 people. Sutherland sits at 1,450 m (4,760 ft) above sea level under one of the darkest skies in the southern hemisphere. The Milky Way is visible to the naked eye. About 2 hours under the stars with telescope access.<br><br>
+          Dress properly warm — thermals, jacket, gloves and hat. It is genuinely cold out there.<br><br>
+          Contact: WhatsApp <a href="https://wa.me/27786030058">+27 78 603 0058</a></div>
+          <div class="pills">
+            <span class="pill pill-booked">BOOKED · 6 people</span>
+            <span class="pill pill-price">R175 / person</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>Stargazing tips</h4>
+        <ul>
+          <li>Eyes take 20 min to dark-adapt — no phone screens at the site</li>
+          <li>Dress warmer than you think you need to</li>
+          <li>May skies are stable and dry — conditions are excellent</li>
+          <li>The Milky Way core is visible this time of year</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>After stargazing</h4>
+        <ul>
+          <li>Blue Moon restaurant closes early — plan ahead</li>
+          <li>OK Food Store for provisions if needed</li>
+          <li>Skitterland breakfast is included — sleep in peace</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 4: SUNDAY ══ -->
+  <div id="tab-sun" class="tab-panel" role="tabpanel">
+    <span class="day-label">Sunday 10 May</span>
+    <div class="panel-title">Sutherland → Montagu → Cape Town</div>
+    <div class="panel-meta">Full group &nbsp;·&nbsp; scenic return via Barrydale &amp; the Klein Karoo</div>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-time">08:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Breakfast at Skitterland</div>
+          <div class="stop-detail">Farm-style, included with accommodation. Get bags into the cars before 10:00 — you won't be coming back to the rooms.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">10:30</div>
+        <div class="stop-content star">
+          <div class="stop-name">★ Full Dome 3D Show — Sutherland Planetarium</div>
+          <div class="stop-detail">All 6. Immersive dome theatre — a full-sky digital planetarium experience. This is the Sunday morning showing. Runs approximately 1 hour.<br><br>
+          Contact: WhatsApp <a href="https://wa.me/27786030058">+27 78 603 0058</a></div>
+          <div class="pills">
+            <span class="pill pill-booked">BOOKED · 6 people</span>
+            <span class="pill pill-price">R110 / person</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~12:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Depart Sutherland — convoy south</div>
+          <div class="stop-detail">Head south on R354 toward Laingsburg. Scenic route today — through Barrydale and the Klein Karoo rather than staying on the N1. Longer but significantly more interesting.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~14:30</div>
+        <div class="stop-content action">
+          <div class="stop-name">★ Lunch — Cogman's Restaurant, Avalon Springs, Montagu</div>
+          <div class="stop-detail">Halaal-friendly — meat sourced from a Halaal-certified butcher, pork prepared separately. Extensive à la carte menu. Set in the Cogmanskloof with mountain views.<br><br>
+          Lunch served daily 11:30–16:00.<br><br>
+          <strong>Leigh to call ahead:</strong> <a href="tel:0236141150">023 614 1150</a> — book for 6, advise 1 vegan guest + halaal-friendly for the rest.</div>
+          <div class="pills">
+            <span class="pill pill-action">CALL AHEAD · 023 614 1150</span>
+            <span class="pill pill-info">~180 km / ~2.5h from Sutherland</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~16:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Depart Montagu — final stretch to Cape Town</div>
+          <div class="stop-detail">Through Robertson, Worcester, and the N1. ~150 km / ~2 hours.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~18:00</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Arrive Cape Town</div>
+          <div class="stop-detail">Freedom complete.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <div class="actions">
+      <h3>What Still Needs Doing</h3>
+
+      <div class="action-item done">
+        <div class="action-icon icon-done">✓</div>
+        <div class="action-info">
+          <h4>Sutherland Planetarium — Sat 20:00 stargazing, 6 people</h4>
+          <p>Booked.</p>
+        </div>
+      </div>
+
+      <div class="action-item done">
+        <div class="action-icon icon-done">✓</div>
+        <div class="action-info">
+          <h4>Sutherland Planetarium — Sun 10:30 Full Dome show, 6 people</h4>
+          <p>Booked.</p>
+        </div>
+      </div>
+
+      <div class="action-item done">
+        <div class="action-icon icon-done">✓</div>
+        <div class="action-info">
+          <h4>Skitterland Guesthouse — Aries, Taurus &amp; Sagittarius suites</h4>
+          <p>Accommodation confirmed.</p>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-icon icon-todo">!</div>
+        <div class="action-info">
+          <h4>Call Cogman's — reserve for 6, advise dietary requirements</h4>
+          <p>Call before 8 May. Book for ~14:30 Sunday 10 May — 1 vegan, rest halaal-friendly.<br>
+          <a href="tel:0236141150">023 614 1150</a></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end tab panels -->
+
+  <div class="footer">
+    The Freedom Drive &nbsp;·&nbsp; 9–10 May 2026 &nbsp;·&nbsp; Sutherland, Northern Cape
+  </div>
+
+</div>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
