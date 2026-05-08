@@ -405,9 +405,9 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="eyebrow">9 – 10 May 2026 &nbsp;·&nbsp; Northern Cape</div>
+    <div class="eyebrow">8 – 10 May 2026 &nbsp;·&nbsp; Northern Cape</div>
     <h1>The Freedom Drive</h1>
-    <div class="subtitle">Johannesburg → Sutherland → Cape Town</div>
+    <div class="subtitle">Johannesburg → Bloemfontein → Sutherland → Cape Town</div>
     <div class="crew">
       <span class="crew-tag">Leigh</span>
       <span class="crew-tag">Shadley</span>
@@ -439,60 +439,132 @@
 
   <!-- TAB NAV -->
   <div class="tabs-nav" role="tablist">
-    <button class="tab-btn active" onclick="switchTab('jhb')"   role="tab" aria-selected="true">Joburg Drive</button>
-    <button class="tab-btn"        onclick="switchTab('cpt')"   role="tab">Cape Town Drive</button>
+    <button class="tab-btn active" onclick="switchTab('fri')"   role="tab" aria-selected="true">Fri · Joburg → Bloem</button>
+    <button class="tab-btn"        onclick="switchTab('sat')"   role="tab">Sat · Bloem → Sutherland</button>
+    <button class="tab-btn"        onclick="switchTab('cpt')"   role="tab">Sat · Cape Town Drive</button>
     <button class="tab-btn"        onclick="switchTab('eve')"   role="tab">Sat Evening</button>
     <button class="tab-btn"        onclick="switchTab('sun')"   role="tab">Sunday</button>
   </div>
 
-  <!-- ══ TAB 1: JOBURG DRIVE ══ -->
-  <div id="tab-jhb" class="tab-panel active" role="tabpanel">
+  <!-- ══ TAB 1: FRIDAY — ROODEPOORT → BLOEM ══ -->
+  <div id="tab-fri" class="tab-panel active" role="tabpanel">
+    <span class="day-label">Friday 8 May</span>
+    <div class="panel-title">Roodepoort → Bloemfontein</div>
+    <div class="panel-meta">Leigh &amp; Shadley &nbsp;·&nbsp; ~400 km / ~250 mi &nbsp;·&nbsp; ~4 hours via N1 South</div>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="stop-time">15:15</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Depart 64 Walker Avenue, Roodepoort</div>
+          <div class="stop-detail">Bags loaded the night before. Tyres, water, warm layers packed. Onto the N1 South via the Western Bypass.</div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~17:30</div>
+        <div class="stop-content">
+          <div class="stop-name">Fuel + Break — Shell Ultra City, Kroonstad</div>
+          <div class="stop-detail">~225 km / ~140 mi from Roodepoort. Swap drivers, coffee, stretch.</div>
+          <div class="pills"><span class="pill pill-info">20 min</span></div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~19:30</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Arrive — Protea Hotel by Marriott Bloemfontein Willow Lake</div>
+          <div class="stop-detail"><strong>101 Henry Street, Willows, Bloemfontein</strong> — east side of town, ~3 km / ~1.9 mi off the N1.<br><br>
+          Walk-in for a twin-bed room. 24-hour reception. 45 rooms convert to twin configuration — ask at check-in.<br><br>
+          Phone: <a href="tel:+27514125400">+27 51 412 5400</a></div>
+          <div class="pills">
+            <span class="pill pill-action">CALL FROM ROAD · +27 51 412 5400</span>
+            <span class="pill pill-info">4-star Marriott</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~20:00</div>
+        <div class="stop-content">
+          <div class="stop-name">Dinner at the hotel</div>
+          <div class="stop-detail">Eat in. No need to drive again tonight. Early start tomorrow — long Karoo day ahead.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>Hotel — Willow Lake</h4>
+        <ul>
+          <li>101 Henry Street, Willows, Bloemfontein</li>
+          <li>+27 51 412 5400</li>
+          <li>Twin-bed room (one of 45 convertible)</li>
+          <li>24h reception · free parking</li>
+          <li>Pool, restaurant, on-site bar</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>Fuel notes — Friday leg</h4>
+        <ul>
+          <li>Fill at home before leaving Roodepoort</li>
+          <li>Kroonstad is your one mid-route stop</li>
+          <li>Refuel in Bloem on Saturday morning, not tonight</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2: SATURDAY — BLOEM → SUTHERLAND ══ -->
+  <div id="tab-sat" class="tab-panel" role="tabpanel">
     <span class="day-label">Saturday 9 May</span>
-    <div class="panel-title">Johannesburg → Sutherland</div>
-    <div class="panel-meta">Leigh &amp; Shadley &nbsp;·&nbsp; ~1,250 km &nbsp;·&nbsp; ~13 hours with stops</div>
+    <div class="panel-title">Bloemfontein → Sutherland</div>
+    <div class="panel-meta">Leigh &amp; Shadley &nbsp;·&nbsp; ~775 km / ~482 mi &nbsp;·&nbsp; ~9 hours driving + stops</div>
 
     <div class="timeline">
 
       <div class="stop">
         <div class="stop-time">06:00</div>
         <div class="stop-content highlight">
-          <div class="stop-name">Depart Johannesburg</div>
-          <div class="stop-detail">Early start. Car checked — tyres, water, warm layers packed. May nights in Sutherland are below freezing.</div>
+          <div class="stop-name">Depart Protea Willow Lake, Bloemfontein</div>
+          <div class="stop-detail">Early start. Fuel up before joining the N1 South — long day in the Karoo ahead. Coffee from the hotel; breakfast on the road.</div>
         </div>
       </div>
 
       <div class="stop">
-        <div class="stop-time">09:00</div>
+        <div class="stop-time">~08:30</div>
+        <div class="stop-content highlight">
+          <div class="stop-name">Breakfast + Fuel — Shell N1 City, Colesberg</div>
+          <div class="stop-detail">~225 km / ~140 mi from Bloem. Wimpy on site with vegan-friendly options. Swap drivers.</div>
+          <div class="pills"><span class="pill pill-info">45 min</span></div>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="stop-time">~11:30</div>
         <div class="stop-content">
-          <div class="stop-name">Fuel Stop — Shell Ultra City, Kroonstad</div>
-          <div class="stop-detail">~280 km. Swap drivers, coffee, stretch legs.</div>
+          <div class="stop-name">Fuel Stop — Three Sisters</div>
+          <div class="stop-detail">~190 km / ~118 mi from Colesberg. Quick top-up, stretch, and onward.</div>
           <div class="pills"><span class="pill pill-info">15 min</span></div>
         </div>
       </div>
 
       <div class="stop">
-        <div class="stop-time">12:30</div>
+        <div class="stop-time">~13:00</div>
         <div class="stop-content highlight">
-          <div class="stop-name">Lunch + Fuel — Shell N1 City, Colesberg</div>
-          <div class="stop-detail">Roughly halfway. Wimpy on site with vegan-friendly options available.</div>
+          <div class="stop-name">Lunch + Fuel — BP, Beaufort West</div>
+          <div class="stop-detail">~110 km / ~68 mi from Three Sisters. <strong>Last reliable fuel before Sutherland — fill up fully here.</strong> Eat properly; no hot food between here and Sutherland.</div>
           <div class="pills"><span class="pill pill-info">60 min</span></div>
         </div>
       </div>
 
       <div class="stop">
-        <div class="stop-time">16:00</div>
-        <div class="stop-content">
-          <div class="stop-name">Fuel Stop — BP, Beaufort West</div>
-          <div class="stop-detail">~330 km from Colesberg. Last reliable fuel before Sutherland — fill up fully here.</div>
-          <div class="pills"><span class="pill pill-info">20 min</span></div>
-        </div>
-      </div>
-
-      <div class="stop">
-        <div class="stop-time">19:00</div>
+        <div class="stop-time">~17:00</div>
         <div class="stop-content highlight">
           <div class="stop-name">Arrive — Skitterland Guesthouse, Sutherland</div>
-          <div class="stop-detail">Aqelah's group will already be here. Check in to the Aries Suite. Grab snacks from the OK Food Store before it closes — you'll want something late tonight. Temperature drops fast after sunset.</div>
+          <div class="stop-detail">North on the R354 from Beaufort West — ~250 km / ~155 mi, ~3 hrs through open Karoo. Aqelah's group should be arriving around the same time. Check in to the Aries Suite. Grab snacks at the OK Food Store before it closes — Stargazing at 20:00 leaves no time after.</div>
         </div>
       </div>
 
@@ -502,15 +574,16 @@
       <div class="info-box">
         <h4>What to pack for the drive</h4>
         <ul>
-          <li>Thermals + warm jacket for the evening</li>
-          <li>Gloves and a hat — non-negotiable</li>
+          <li>Thermals + warm jacket — needed on arrival</li>
+          <li>Gloves and a hat — non-negotiable for tonight</li>
           <li>Snacks and water for the car</li>
           <li>Phone charger / car charger</li>
         </ul>
       </div>
       <div class="info-box">
-        <h4>Fuel notes</h4>
+        <h4>Fuel notes — Saturday leg</h4>
         <ul>
+          <li>Refuel in Bloem before joining the N1</li>
           <li>Don't rely on small towns after hours</li>
           <li>Beaufort West is your last guaranteed stop</li>
           <li>Sutherland has a Sasol — open 7 days</li>
@@ -740,7 +813,7 @@
   <!-- end tab panels -->
 
   <div class="footer">
-    The Freedom Drive &nbsp;·&nbsp; 9–10 May 2026 &nbsp;·&nbsp; Sutherland, Northern Cape
+    The Freedom Drive &nbsp;·&nbsp; 8–10 May 2026 &nbsp;·&nbsp; Sutherland, Northern Cape
   </div>
 
 </div>
